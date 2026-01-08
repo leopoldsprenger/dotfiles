@@ -1,0 +1,9 @@
+aerospace
+font-hack-nerd-font
+font-jetbrains-mono-nerd-font
+font-sketchybar-app-font
+ghostty
+iterm2
+mactex-no-gui
+sf-symbols
+visual-studio-code
