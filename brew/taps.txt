@@ -1,2 +1,3 @@
 felixkratz/formulae
 nikitabobko/tap
+romkatv/powerlevel10k
