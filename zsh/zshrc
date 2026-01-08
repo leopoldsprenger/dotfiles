@@ -1,0 +1,28 @@
+# Add Homebrew to PATH (Apple Silicon default)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Add pyenv to PATH
+export PATH="$HOME/.pyenv/bin:$PATH"
+
+# Initialize pyenv
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+eval "$(pyenv virtualenv-init -)"
+
+# Enable prompt substitution for dynamic prompt evaluation
+setopt prompt_subst
+
+# Function to get venv name or fallback
+get_venv_name() {
+  if [[ -n $VIRTUAL_ENV ]]; then
+    echo "${VIRTUAL_ENV:t}"
+  else
+    echo "~"
+  fi
+}
+
+# Use the function dynamically in the prompt
+PROMPT='%F{cyan}($(get_venv_name)) %F{green}%1~ >%f '
+

@@ -1,0 +1,11 @@
+# macOS files
+.DS_Store
+
+# SSH and security
+ssh/known_hosts
+ssh/id_*
+ssh/*.pub
+
+# Logs and caches
+*.log
+.cache/
