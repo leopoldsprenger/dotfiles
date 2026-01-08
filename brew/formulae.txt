@@ -54,7 +54,6 @@ pango
 pcre2
 pixman
 pkgconf
-powerlevel10k
 pyenv
 readline
 sketchybar

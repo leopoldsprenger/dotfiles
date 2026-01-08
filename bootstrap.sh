@@ -24,6 +24,18 @@ else
     echo "Oh My Zsh already installed"
 fi
 
+echo "=== Install Powerlevel10k manually ==="
+THEME_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [ ! -d "$THEME_DIR" ]; then
+    echo "Cloning Powerlevel10k into $THEME_DIR..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$THEME_DIR"
+else
+    echo "Powerlevel10k already installed"
+fi
+
+# Ensure zshrc points to it
+sed -i '' 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
+
 echo "=== Create necessary directories ==="
 mkdir -p ~/.config
 mkdir -p ~/Library/Application\ Support/Code/User
