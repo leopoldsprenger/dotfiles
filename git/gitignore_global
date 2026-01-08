@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Vim / Neovim
+*.swp
+*.swo
+*.un~ 
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node / JS
+node_modules/
+
+# Build artifacts
+*.o
+*.out
+*.class
+dist/
+build/
