@@ -6,7 +6,7 @@ This repository contains all of my versioned dotfiles and a bootstrap script to 
 
 1. Clone the repository into your home directory:
 ```bash
-   git clone <your-repo-url> ~/dotfiles
+   git clone https://github.com/leopoldsprenger/dotfiles.git ~/dotfiles
 ```
 2. Change into the dotfiles directory:
 ```bash
