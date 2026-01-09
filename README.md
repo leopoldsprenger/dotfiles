@@ -5,20 +5,23 @@ This repository contains all of my versioned dotfiles and a bootstrap script to 
 ## Setup Instructions
 
 1. Clone the repository into your home directory:
-
+```bash
    git clone <your-repo-url> ~/dotfiles
-
+```
 2. Change into the dotfiles directory:
-
+```bash
    cd ~/dotfiles
-
+```
 3. Make the bootstrap script executable:
-
+```bash
    chmod +x bootstrap.sh
-
+```
 4. Run the bootstrap script:
-
+```bash
    ./bootstrap.sh
+```
+
+> Note: I may beed to restart my PC for the config to take effect
 
 ## What the script does
 
@@ -40,5 +43,3 @@ The script will:
 - Apply macOS defaults tweaks:
   - Hide the menu bar automatically.
   - Hide the Dock instantly with no animation.
-
-After the script completes, your dev environment will be fully set up and versioned with your dotfiles. You may need to restart your shell or run 'source ~/.zshrc' to apply the shell changes.
