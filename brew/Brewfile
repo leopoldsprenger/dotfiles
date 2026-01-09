@@ -1,5 +1,4 @@
-tap "felixkratz/formulae"
-tap "nikitabobko/tap"
+tap "FelixKratz/formulae"
 tap "romkatv/powerlevel10k"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
@@ -24,11 +23,11 @@ brew "tcl-tk"
 # Sends magic packets to wake up network-devices
 brew "wakeonlan"
 # A window border system for macOS
-brew "felixkratz/formulae/borders"
+brew "FelixKratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar"
+brew "FelixKratz/formulae/sketchybar"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "aerospace"
+cask "nikitabobko/tap/aerospace"
 cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sketchybar-app-font"

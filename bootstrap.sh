@@ -6,47 +6,46 @@ BACKUP_DIR="$HOME/.dotfiles-backup"
 
 echo "=== Sanity checks ==="
 if [ ! -d "$DOTFILES" ]; then
-    echo "❌ Dotfiles directory not found at $DOTFILES"
-    exit 1
+  echo "Dotfiles directory not found at $DOTFILES"
+  exit 1
 fi
 
 mkdir -p "$BACKUP_DIR"
 
 backup_if_exists() {
-    local target="$1"
-    if [ -e "$target" ] && [ ! -L "$target" ]; then
-        echo "Backing up existing $target"
-        mv "$target" "$BACKUP_DIR/"
-    fi
+  local target="$1"
+  if [ -e "$target" ] && [ ! -L "$target" ]; then
+    echo "Backing up existing $target"
+    mv "$target" "$BACKUP_DIR/"
+  fi
 }
 
 echo "=== Install Homebrew if missing ==="
 if ! command -v brew >/dev/null 2>&1; then
-    echo "Homebrew not found, installing..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Homebrew not found, installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
-    echo "Homebrew already installed"
+  echo "Homebrew already installed"
 fi
 
 echo "=== Brew bundle install ==="
 brew update
-brew tap homebrew/bundle
 brew bundle --file "$DOTFILES/brew/Brewfile"
 
 echo "=== Install Oh My Zsh if missing ==="
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  echo "Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
-    echo "Oh My Zsh already installed"
+  echo "Oh My Zsh already installed"
 fi
 
 echo "=== Install Powerlevel10k if missing ==="
 THEME_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 if [ ! -d "$THEME_DIR" ]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$THEME_DIR"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$THEME_DIR"
 else
-    echo "Powerlevel10k already installed"
+  echo "Powerlevel10k already installed"
 fi
 
 echo "=== Create required directories ==="
@@ -66,27 +65,27 @@ echo "=== Symlink dotfiles ==="
 
 # Bash
 ln -sf "$DOTFILES/bash/bash_profile" ~/.bash_profile
-ln -sf "$DOTFILES/bash/bashrc"       ~/.bashrc
+ln -sf "$DOTFILES/bash/bashrc" ~/.bashrc
 
 # Zsh
-ln -sf "$DOTFILES/zsh/zshrc"    ~/.zshrc
+ln -sf "$DOTFILES/zsh/zshrc" ~/.zshrc
 ln -sf "$DOTFILES/zsh/zprofile" ~/.zprofile
 ln -sf "$DOTFILES/p10k/p10k.zsh" ~/.p10k.zsh
 
 # Git
-ln -sf "$DOTFILES/git/gitconfig"        ~/.gitconfig
+ln -sf "$DOTFILES/git/gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES/git/gitignore_global" ~/.gitignore_global
 
 # VS Code
 ln -sf "$DOTFILES/vscode/settings.json" \
-    "$HOME/Library/Application Support/Code/User/settings.json"
+  "$HOME/Library/Application Support/Code/User/settings.json"
 ln -sf "$DOTFILES/vscode/keybindings.json" \
-    "$HOME/Library/Application Support/Code/User/keybindings.json"
+  "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 # VS Code extensions
 if [ -f "$DOTFILES/vscode/extensions.txt" ] && command -v code >/dev/null 2>&1; then
-    echo "Installing VS Code extensions..."
-    xargs -n 1 code --install-extension < "$DOTFILES/vscode/extensions.txt" || true
+  echo "Installing VS Code extensions..."
+  xargs -n 1 code --install-extension <"$DOTFILES/vscode/extensions.txt" || true
 fi
 
 # Neovim
@@ -103,7 +102,12 @@ ln -sf "$DOTFILES/janky-borders" ~/.config/borders
 
 # Ghostty
 ln -sf "$DOTFILES/ghostty/config" \
-    "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+  "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+
+echo "=== Enable background options and login items ==="
+brew services start sketchybar
+brew services start borders
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"AeroSpace", hidden:false}'
 
 echo "=== Apply macOS defaults (UI tweaks) ==="
 defaults write NSGlobalDomain _HIHideMenuBar -bool true

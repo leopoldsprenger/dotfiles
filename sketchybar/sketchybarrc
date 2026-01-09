@@ -62,17 +62,13 @@ sketchybar --add bracket left_pill_bg apple_logo space.1 space.2 space.3 space.4
 # -- Right Side Items --
 source $ITEM_DIR/calendar.sh
 source $ITEM_DIR/volume.sh
-source $ITEM_DIR/cpu.sh
-source $ITEM_DIR/memory.sh
 
-HAS_BATTERY=$(
-  pmset -g batt | grep -q "No battery"
-  echo $?
-)
-
-if [ "$HAS_BATTERY" -eq 0 ]; then
+if /usr/sbin/ioreg -c AppleSmartBattery -r | grep -q '"BatteryInstalled" = Yes'; then
   source $ITEM_DIR/battery.sh
 fi
+
+source $ITEM_DIR/cpu.sh
+source $ITEM_DIR/memory.sh
 
 # Right section unified background
 sketchybar --add bracket right_pill_bg music-next music music-prev calendar lock volume battery cpu memory clipboard twingate \
