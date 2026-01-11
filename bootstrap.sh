@@ -104,6 +104,15 @@ ln -sf "$DOTFILES/janky-borders" ~/.config/borders
 ln -sf "$DOTFILES/ghostty/config" \
   "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 
+# Linearmouse
+n -sf "$DOTFILES/linearmouse/linearmouse.json" \
+  "$HOME/.config/linearmouse/linearmouse.json"
+
+# Raycast
+if [ -f "$DOTFILES/raycast/backup.rayconfig" ]; then
+  open $DOTFILES/raycast/backup.rayconfig
+fi
+
 echo "=== Enable background options and login items ==="
 brew services start sketchybar
 brew services start borders

@@ -33,8 +33,10 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-sketchybar-app-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
+# Customize mouse behavior
+cask "linearmouse"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Full TeX Live distribution without GUI applications
 cask "mactex-no-gui"
 # Tool that provides consistent, highly configurable symbols for apps
