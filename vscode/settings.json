@@ -3,7 +3,6 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Tokyo Night Moon",
     "workbench.iconTheme": "material-icon-theme",
     "code-runner.executorMap": {
 
@@ -98,5 +97,6 @@
     "liveServer.settings.donotShowInfoMsg": true,
     "workbench.settings.applyToAllProfiles": [
 
-    ]
+    ],
+    "workbench.colorTheme": "Tokyo Night Storm"
 }

@@ -1,5 +1,6 @@
 arrrrny.zed-one-theme
 eamodio.gitlens
+enkia.tokyo-night
 esbenp.prettier-vscode
 formulahendry.code-runner
 github.copilot
@@ -14,7 +15,6 @@ ms-python.vscode-python-envs
 ms-vscode.cmake-tools
 ms-vscode.cpptools
 openai.chatgpt
-patricknasralla.tokyo-night-moon
 pkief.material-icon-theme
 qwtel.sqlite-viewer
 ritwickdey.liveserver
