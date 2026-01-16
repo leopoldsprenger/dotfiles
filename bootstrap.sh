@@ -136,7 +136,7 @@ ln -sf "$DOTFILES/ghostty/config" \
   "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 
 # Linearmouse
-n -sf "$DOTFILES/linearmouse/linearmouse.json" \
+ln -sf "$DOTFILES/linearmouse/linearmouse.json" \
   "$HOME/.config/linearmouse/linearmouse.json"
 
 # Raycast
