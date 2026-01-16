@@ -48,6 +48,37 @@ else
   echo "Powerlevel10k already installed"
 fi
 
+echo "=== Install Mousecape if missing ==="
+
+MOUSECAPE_APP="/Applications/Mousecape.app"
+MOUSECAPE_ZIP="/Applications/Mousecape-Tahoe-PreRelease.zip"
+MOUSECAPE_URL="https://github.com/AdamWawrzynkowskiGF/Mousecape-TahoeSupport/releases/download/PreRelease-v01/Mousecape-Tahoe-PreRelease.zip"
+
+if [ ! -d "$MOUSECAPE_APP" ]; then
+  echo "Mousecape not found. Installing..."
+
+  sudo curl -L -o "$MOUSECAPE_ZIP" "$MOUSECAPE_URL"
+  sudo unzip -o "$MOUSECAPE_ZIP" -d /Applications
+  sudo rm -f "$MOUSECAPE_ZIP"
+
+  echo "Removing quarantine attribute..."
+  sudo xattr -dr com.apple.quarantine "$MOUSECAPE_APP"
+
+  echo "Mousecape installed."
+else
+  echo "Mousecape already installed."
+
+  echo "Ensuring quarantine attribute is removed..."
+  sudo xattr -dr com.apple.quarantine "$MOUSECAPE_APP"
+fi
+
+echo "Importing cursor themes..."
+open -a Mousecape "$DOTFILES/mousecape/vision.cursor.white.cape" \
+  "$DOTFILES/mousecape/vision.cursor.black.cape"
+
+# Open app so user can apply manually
+open -a Mousecape
+
 echo "=== Create required directories ==="
 mkdir -p ~/.config
 mkdir -p "$HOME/Library/Application Support/Code/User"

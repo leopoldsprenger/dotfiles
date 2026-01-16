@@ -6,22 +6,25 @@ This repository contains all of my versioned dotfiles and a bootstrap script to 
 
 1. Clone the repository into your home directory:
 ```bash
-   git clone https://github.com/leopoldsprenger/dotfiles.git ~/dotfiles
+git clone https://github.com/leopoldsprenger/dotfiles.git ~/dotfiles
 ```
 2. Change into the dotfiles directory:
 ```bash
-   cd ~/dotfiles
+cd ~/dotfiles
 ```
 3. Make the bootstrap script executable:
 ```bash
-   chmod +x bootstrap.sh
+chmod +x bootstrap.sh
 ```
 4. Run the bootstrap script:
 ```bash
-   ./bootstrap.sh
+./bootstrap.sh
+```
+5. Select the desired cursor theme when Mousecape leopoldsprenger
+```
 ```
 
-> Note: I may beed to restart my PC for the config to take effect
+> Note: I may need to restart my PC for the config to take effect
 
 ## What the script does
 
