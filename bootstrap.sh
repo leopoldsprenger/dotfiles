@@ -126,6 +126,10 @@ ln -sf "$DOTFILES/nvim" ~/.config/nvim
 ln -sf "$DOTFILES/aerospace" ~/.config/aerospace
 
 # SketchyBar
+# install SbarLua first
+git clone --depth 1 --quiet https://github.com/FelixKratz/SbarLua.git /tmp/sbarlua
+cd /tmp/sbarlua && make install
+# Symlink
 ln -sf "$DOTFILES/sketchybar" ~/.config/sketchybar
 
 # Janky Borders
@@ -143,9 +147,6 @@ ln -sf "$DOTFILES/linearmouse/linearmouse.json" \
 if [ -f "$DOTFILES/raycast/backup.rayconfig" ]; then
   open $DOTFILES/raycast/backup.rayconfig
 fi
-
-echo "=== Install sketchybar config ==="
-curl -fsSL https://raw.githubusercontent.com/Efterklang/sketchybar/main/install.sh | sh -s
 
 echo "=== Enable background options and login items ==="
 brew services start sketchybar
