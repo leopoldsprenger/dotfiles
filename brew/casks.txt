@@ -1,9 +1,11 @@
 aerospace
-font-hack-nerd-font
 font-jetbrains-mono-nerd-font
+font-maple-mono-nf-cn
+font-sf-pro
 font-sketchybar-app-font
 ghostty
-iterm2
+linearmouse
 mactex-no-gui
+raycast
 sf-symbols
 visual-studio-code

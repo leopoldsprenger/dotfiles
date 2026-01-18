@@ -1,50 +1,40 @@
-tap "FelixKratz/formulae"
+tap "felixkratz/formulae"
+tap "joncrangle/tap"
+tap "nikitabobko/tap"
 tap "romkatv/powerlevel10k"
-# Bourne-Again SHell, a UNIX command interpreter
-brew "bash"
-# Modern, C++-native, test framework
-brew "catch2"
-# Cross-platform make
-brew "cmake"
-# Like neofetch, but much faster because written mostly in C
-brew "fastfetch"
-# General-purpose data compression with high compression ratio
 brew "xz"
-# GNU compiler collection
+brew "bash"
+brew "catch2"
+brew "cmake"
+brew "fastfetch"
 brew "gcc"
-# GitHub command-line tool
 brew "gh"
-# Ambitious Vim-fork focused on extensibility and agility
+brew "imagemagick"
+brew "jq"
+brew "lua"
+brew "media-control"
 brew "neovim"
-# Python version management
 brew "pyenv"
-# Tool Command Language
+brew "switchaudio-osx"
 brew "tcl-tk"
-# Sends magic packets to wake up network-devices
 brew "wakeonlan"
-# A window border system for macOS
-brew "FelixKratz/formulae/borders"
-# Custom macOS statusbar with shell plugin, interaction and graph support
-brew "FelixKratz/formulae/sketchybar"
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
-cask "font-hack-nerd-font"
+brew "felixkratz/formulae/borders"
+brew "felixkratz/formulae/sketchybar"
+brew "joncrangle/tap/sketchybar-system-stats"
+cask "aerospace"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-maple-mono-nf-cn"
+cask "font-sf-pro"
 cask "font-sketchybar-app-font"
-# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Customize mouse behavior
 cask "linearmouse"
-# Control your tools with a few keystrokes
-cask "raycast"
-# Full TeX Live distribution without GUI applications
 cask "mactex-no-gui"
-# Tool that provides consistent, highly configurable symbols for apps
+cask "raycast"
 cask "sf-symbols"
-# Open-source code editor
 cask "visual-studio-code"
 vscode "arrrrny.zed-one-theme"
 vscode "eamodio.gitlens"
+vscode "enkia.tokyo-night"
 vscode "esbenp.prettier-vscode"
 vscode "formulahendry.code-runner"
 vscode "github.copilot"
@@ -59,7 +49,6 @@ vscode "ms-python.vscode-python-envs"
 vscode "ms-vscode.cmake-tools"
 vscode "ms-vscode.cpptools"
 vscode "openai.chatgpt"
-vscode "patricknasralla.tokyo-night-moon"
 vscode "pkief.material-icon-theme"
 vscode "qwtel.sqlite-viewer"
 vscode "ritwickdey.liveserver"
