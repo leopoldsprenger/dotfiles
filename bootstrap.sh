@@ -144,6 +144,9 @@ if [ -f "$DOTFILES/raycast/backup.rayconfig" ]; then
   open $DOTFILES/raycast/backup.rayconfig
 fi
 
+echo "=== Install sketchybar config ==="
+curl -fsSL https://raw.githubusercontent.com/Efterklang/sketchybar/main/install.sh | sh -s
+
 echo "=== Enable background options and login items ==="
 brew services start sketchybar
 brew services start borders
