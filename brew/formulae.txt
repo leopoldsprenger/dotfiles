@@ -2,6 +2,7 @@ aom
 autoconf
 automake
 bash
+black
 borders
 brotli
 ca-certificates
@@ -29,6 +30,7 @@ icu4c@78
 imagemagick
 imath
 isl
+isort
 jasper
 jbig2dec
 jpeg-turbo
@@ -88,6 +90,7 @@ pkgconf
 pyenv
 python@3.14
 readline
+ruff
 shared-mime-info
 sketchybar
 sketchybar-system-stats
