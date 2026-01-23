@@ -51,6 +51,3 @@ require("lazy").setup({
     },
   },
 })
-
--- load mason packages
-require("config.mason")
