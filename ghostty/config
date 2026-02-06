@@ -43,7 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 
 command = /bin/zsh
-theme = TokyoNight Moon
+theme = "Catppuccin Mocha"
 font-family = "JetBrainsMono Nerd"
 font-size = 18
 window-padding-x = 18
@@ -55,6 +55,7 @@ cursor-style-blink = true
 mouse-hide-while-typing = true
 bold-is-bright = true
 minimum-contrast = 2
-macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
 title = " "
 confirm-close-surface = false
+window-padding-color = extend-always
