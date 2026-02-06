@@ -32,6 +32,8 @@ echo "=== Brew bundle install ==="
 brew update
 brew bundle --file "$DOTFILES/brew/Brewfile"
 
+chmod +x brew-update.sh
+
 echo "=== Install Oh My Zsh if missing ==="
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing Oh My Zsh..."
@@ -118,6 +120,9 @@ if [ -f "$DOTFILES/vscode/extensions.txt" ] && command -v code >/dev/null 2>&1; 
   echo "Installing VS Code extensions..."
   xargs -n 1 code --install-extension <"$DOTFILES/vscode/extensions.txt" || true
 fi
+
+# Make VS Code update script executable
+chmod +x vscode-update.sh
 
 # Neovim
 ln -sf "$DOTFILES/nvim" ~/.config/nvim

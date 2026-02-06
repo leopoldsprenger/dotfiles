@@ -21,6 +21,7 @@ ghostscript
 giflib
 glib
 gmp
+go
 gobject-introspection
 graphite2
 harfbuzz
@@ -90,6 +91,7 @@ pkgconf
 pyenv
 python@3.14
 readline
+ripgrep
 ruff
 shared-mime-info
 sketchybar
@@ -98,6 +100,7 @@ sqlite
 switchaudio-osx
 tcl-tk
 tesseract
+tree-sitter-cli
 tree-sitter@0.25
 unibilium
 utf8proc

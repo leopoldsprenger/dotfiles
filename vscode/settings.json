@@ -3,7 +3,6 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.wordWrap": "on",
-    "workbench.iconTheme": "material-icon-theme",
     "code-runner.executorMap": {
 
 
@@ -98,5 +97,8 @@
     "workbench.settings.applyToAllProfiles": [
 
     ],
-    "workbench.colorTheme": "Tokyo Night Storm"
+    "workbench.colorTheme": "Tokyo Night Moon NVim",
+    "workbench.statusBar.visible": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.activityBar.location": "hidden"
 }

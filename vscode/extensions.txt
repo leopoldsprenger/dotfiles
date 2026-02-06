@@ -1,4 +1,6 @@
 arrrrny.zed-one-theme
+catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
 eamodio.gitlens
 enkia.tokyo-night
 esbenp.prettier-vscode
@@ -7,6 +9,7 @@ github.copilot
 github.copilot-chat
 james-yu.latex-workshop
 jamesmaj.easy-icons
+matyaszednicek.tokyo-night-moon-nvim-theme
 mechatroner.rainbow-csv
 ms-python.debugpy
 ms-python.python
@@ -18,5 +21,7 @@ openai.chatgpt
 pkief.material-icon-theme
 qwtel.sqlite-viewer
 ritwickdey.liveserver
+sharifdotg.catppuccin-dark-pro
+shubhsharma.lazyvim-theme
 zhuangtongfa.material-theme
 zhuangtongfa.one-dark-pro
