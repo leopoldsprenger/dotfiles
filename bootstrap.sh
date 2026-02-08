@@ -94,6 +94,51 @@ backup_if_exists ~/.zprofile
 backup_if_exists ~/.gitconfig
 backup_if_exists ~/.p10k.zsh
 
+echo "=== Install Pico-8 if missing ==="
+
+PICO8_APP="/Applications/PICO-8.app/Contents/MacOS"
+PICO8_URL="https://www.lexaloffle.com/dl/7tiann/pico-8_0.2.5g_osx.zip"
+
+if [ ! -d "$PICO8_APP" ]; then
+  echo "Pico-8 not found. Installing..."
+  
+  tmp=$(mktemp -d)
+  curl -L PICO8_URL -o "$tmp/app.zip"
+  unzip -q "$tmp/app.zip" -d "$tmp"
+  sudo mv "$tmp/pico-8/PICO-8.app" /Applications/
+  rm -rf "$tmp"
+else
+  echo "Pico-8 already installed"
+fi
+
+echo "Installing Pico-8 CLI"
+if ! command -v pico8 >/dev/null 2>&1; then
+  WRAPPER_PATH="/opt/homebrew/bin/pico8"
+
+  # Create wrapper with proper content using sudo and a here-document
+  sudo tee "$WRAPPER_PATH" >/dev/null <<'EOF'
+#!/usr/bin/env bash
+# macOS PICO-8 CLI wrapper
+
+PICO8_APP="/Applications/PICO-8.app/Contents/MacOS"
+
+if [ ! -f "$PICO8_APP/pico8" ]; then
+    echo "Error: PICO-8 binary not found at $PICO8_APP/pico8"
+    exit 1
+fi
+
+exec "$PICO8_APP/pico8" -root_path "$PICO8_APP" "$@"
+EOF
+
+  # Make wrapper executable
+  sudo chmod +x "$WRAPPER_PATH"
+
+  # Verify
+  echo "PICO-8 CLI wrapper installed at $WRAPPER_PATH"
+else
+  echo "Pico-8 CLI already set up"
+fi
+
 echo "=== Symlink dotfiles ==="
 
 # Bash
