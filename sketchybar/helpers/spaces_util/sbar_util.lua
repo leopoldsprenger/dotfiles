@@ -20,8 +20,8 @@ function space_api:add_space_item(space_id, idx)
     space_label = greek_lowercase[idx] or space_id
   end
 
-  local space = SBAR.add("space", "space." .. space_id, {
-    space = space_id,
+  -- Use custom item type instead of native "space" type for aerospace compatibility
+  local space = SBAR.add("item", "space." .. space_id, {
     icon = {
       string = space_label,
       padding_left = SPACES.ITEM_PADDING,

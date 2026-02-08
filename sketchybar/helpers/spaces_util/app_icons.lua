@@ -129,6 +129,7 @@ return setmetatable({
   ["Notes"] = ":notes:",
   ["Calendar"] = ":calendar:",
   ["Fantastical"] = ":calendar:",
+  ["Things"] = ":things:",
   ["Preview"] = ":pdf:",
   ["Skim"] = ":pdf:",
   ["zathura"] = ":pdf:",

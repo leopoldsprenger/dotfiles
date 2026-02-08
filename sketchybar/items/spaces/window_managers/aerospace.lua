@@ -12,14 +12,8 @@ local function parse_string_to_table(s)
   return result
 end
 
-local function get_workspaces()
-  local file = io.popen("aerospace list-workspaces --all")
-  local result = file:read("*a")
-  file:close()
-  return parse_string_to_table(result)
-end
-
-local aerospace_workspaces = get_workspaces()
+-- Hardcoded workspaces to display (1-5)
+local aerospace_workspaces = { "1", "2", "3", "4", "5" }
 
 local function get_current_workspace()
   local file = io.popen("aerospace list-workspaces --focused")
@@ -39,15 +33,12 @@ local Window_Manager = {
 }
 
 function Window_Manager:init()
+  LOG:info("Creating spaces. Found " .. #aerospace_workspaces .. " workspaces")
   for i, workspace in ipairs(aerospace_workspaces) do
+    LOG:info("Creating space item for workspace: " .. workspace .. " (idx: " .. i .. ")")
     local selected = workspace == initial_current_workspace
-    local space_item = sbar_utils:add_space_item(workspace, i)
+    local space_item = sbar_utils:add_space_item(workspace, tonumber(workspace) or i)
     sbar_utils:highlight_focused_space(space_item, selected)
-
-    space_item:subscribe(self.events.focus_change, function(env)
-      local selected = env.FOCUSED_WORKSPACE == workspace
-      sbar_utils:highlight_focused_space(space_item, selected)
-    end)
 
     space_item:subscribe("mouse.clicked", function(env)
       LOG:info(env.NAME)
@@ -62,12 +53,26 @@ function Window_Manager:start_watcher()
   local watcher = SBAR.add("item", {
     drawing = false,
     updates = true,
-    update_freq = 5,
+    update_freq = 1,
   })
 
   watcher:subscribe("routine", function(env)
+    -- Update space labels
     self:update_space_label()
+    -- Update focused workspace highlighting
+    self:update_focused_workspace()
   end)
+end
+
+function Window_Manager:update_focused_workspace()
+  local current = get_current_workspace()
+  for _, workspace in ipairs(aerospace_workspaces) do
+    local space_item = sbar_utils.created_spaces[workspace]
+    if space_item then
+      local is_focused = workspace == current
+      sbar_utils:highlight_focused_space(space_item, is_focused)
+    end
+  end
 end
 
 --- @param button string the mouse button clicked

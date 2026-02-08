@@ -57,7 +57,7 @@ MODULES = {
 
 SPACES = {
   --- @type "greek_uppercase" | "greek_lowercase" | nil
-  ID_STYLE = "greek_uppercase",
+  ID_STYLE = nil,
   ITEM_PADDING = 12,
 }
 
