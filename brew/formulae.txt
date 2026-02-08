@@ -9,11 +9,14 @@ ca-certificates
 cairo
 catch2
 cmake
+dav1d
+doxygen
 fastfetch
 fontconfig
 freetype
 fribidi
 gcc
+gd
 gdk-pixbuf
 gettext
 gh
@@ -24,6 +27,8 @@ gmp
 go
 gobject-introspection
 graphite2
+graphviz
+gts
 harfbuzz
 highway
 icu4c@77
@@ -39,7 +44,9 @@ jpeg-xl
 jq
 leptonica
 libarchive
+libavif
 libb2
+libdatrie
 libde265
 libdeflate
 libheif
@@ -50,6 +57,7 @@ libomp
 libpng
 libraw
 librsvg
+libthai
 libtiff
 libtommath
 libtool
@@ -78,6 +86,7 @@ mpdecimal
 mpfr
 ncurses
 neovim
+netpbm
 ninja
 oniguruma
 openexr
