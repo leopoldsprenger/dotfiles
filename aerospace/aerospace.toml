@@ -12,7 +12,17 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+
+after-startup-command = [
+    'exec-and-forget open -na Ghostty --args --working-directory="$HOME/Documents/programming"',
+    
+    'exec-and-forget open -a Safari',
+    'exec-and-forget open -a ChatGPT',
+
+    'exec-and-forget open -a Things3',
+
+    'workspace 1'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -43,6 +53,22 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Ghostty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
+run = 'move-node-to-workspace 4'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
