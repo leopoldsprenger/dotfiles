@@ -48,6 +48,9 @@ return setmetatable({
   ["微信"] = ":wechat:",
   ["WeChat"] = ":wechat:",
   ["小红书"] = ":book:",
+  ["\u{200E}WhatsApp"] = ":messages:",
+  ["Signal"] = ":signal:",
+  ["Message"] = ":messages:",
 
   -- Media
   ["Spotify"] = ":spotify:",
