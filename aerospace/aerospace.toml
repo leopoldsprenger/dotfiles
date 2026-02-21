@@ -14,7 +14,7 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 
 after-startup-command = [
-    'exec-and-forget open -na Ghostty --args --working-directory="$HOME/Documents/programming"',
+    'exec-and-forget open -na Ghostty --args --working-directory="$HOME/Documents/projects"',
     
     'exec-and-forget open -a Safari',
     'exec-and-forget open -a ChatGPT',

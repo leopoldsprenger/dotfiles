@@ -109,8 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
-alias projects="~/bin/open-project.sh"
+alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/"
+alias projects="$HOME/bin/open-project.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
