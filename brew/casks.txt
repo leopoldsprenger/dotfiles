@@ -1,4 +1,5 @@
 aerospace
+font-hack-nerd-font
 font-jetbrains-mono-nerd-font
 font-maple-mono-nf-cn
 font-sf-pro

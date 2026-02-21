@@ -1,6 +1,5 @@
 aom
 autoconf
-automake
 bash
 black
 borders
@@ -15,6 +14,7 @@ fastfetch
 fontconfig
 freetype
 fribidi
+fzf
 gcc
 gd
 gdk-pixbuf
@@ -100,6 +100,7 @@ sqlite
 switchaudio-osx
 tcl-tk
 tesseract
+tree
 tree-sitter-cli
 tree-sitter@0.25
 unibilium
@@ -110,4 +111,5 @@ x265
 xorgproto
 xz
 yyjson
+zlib
 zstd
