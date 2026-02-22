@@ -27,4 +27,8 @@ EOF
 chmod 600 "$CONFIG_FILE"
 
 echo "WakaTime config written to $CONFIG_FILE"
+
+echo "Installing terminal-wakatime"
+curl -fsSL http://hack.club/terminal-wakatime.sh | bash
+
 echo "Hackatime setup complete."

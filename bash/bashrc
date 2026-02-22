@@ -186,3 +186,7 @@ PROMPT_COMMAND=status_line_once
 icloud() {
   cd "$HOME/Library/Mobile Documents/com~apple~CloudDocs/$1" || return
 }
+
+# terminal-wakatime setup
+export PATH="$HOME/.wakatime:$PATH"
+eval "$(terminal-wakatime init)"
