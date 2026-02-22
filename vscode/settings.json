@@ -98,7 +98,6 @@
 
     ],
     "workbench.colorTheme": "Tokyo Night Moon NVim",
-    "workbench.statusBar.visible": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.activityBar.location": "hidden"
+    "wakatime.cli_path": "/opt/homebrew/bin/wakatime-cli"
 }

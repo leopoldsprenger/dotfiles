@@ -21,6 +21,11 @@ return {
     },
   },
 
+  {
+    'wakatime/vim-wakatime', 
+    lazy = false,
+  },
+
   -- custom automatic install of mason packages
   require("plugins.mason"),
 

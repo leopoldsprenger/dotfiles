@@ -1,5 +1,6 @@
 aom
 autoconf
+automake
 bash
 black
 borders
@@ -105,6 +106,7 @@ tree-sitter-cli
 tree-sitter@0.25
 unibilium
 utf8proc
+wakatime-cli
 wakeonlan
 webp
 x265
