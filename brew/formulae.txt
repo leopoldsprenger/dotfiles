@@ -1,3 +1,4 @@
+ada-url
 aom
 autoconf
 automake
@@ -5,6 +6,7 @@ bash
 black
 borders
 brotli
+c-ares
 ca-certificates
 cairo
 catch2
@@ -12,6 +14,7 @@ cmake
 dav1d
 doxygen
 fastfetch
+fmt
 fontconfig
 freetype
 fribidi
@@ -30,6 +33,7 @@ graphite2
 graphviz
 gts
 harfbuzz
+hdrhistogram_c
 highway
 icu4c@78
 imagemagick
@@ -51,6 +55,9 @@ libdeflate
 libheif
 libidn
 libmpc
+libnghttp2
+libnghttp3
+libngtcp2
 libpng
 librsvg
 libthai
@@ -67,6 +74,7 @@ libxdmcp
 libxext
 libxrender
 little-cms2
+llhttp
 lpeg
 lua
 luajit
@@ -80,6 +88,7 @@ mpfr
 ncurses
 neovim
 netpbm
+node
 oniguruma
 openexr
 openjpeg
@@ -95,6 +104,7 @@ readline
 ripgrep
 ruff
 shared-mime-info
+simdjson
 sketchybar
 sketchybar-system-stats
 sqlite
@@ -106,6 +116,7 @@ tree-sitter-cli
 tree-sitter@0.25
 unibilium
 utf8proc
+uvwasi
 wakatime-cli
 wakeonlan
 webp
