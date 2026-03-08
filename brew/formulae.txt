@@ -114,6 +114,7 @@ tesseract
 tree
 tree-sitter-cli
 tree-sitter@0.25
+typst
 unibilium
 utf8proc
 uvwasi
