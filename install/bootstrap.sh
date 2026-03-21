@@ -81,6 +81,13 @@ open -a Mousecape "$DOTFILES/mousecape/vision.cursor.white.cape" \
 # Open app so user can apply manually
 open -a Mousecape
 
+echo "Set up cursorcerer..."
+# set idle hide to 3 seconds
+defaults write com.doomlaser.cursorcerer idleHide -string "3"
+
+# disable hotkey by clearing the toggleCursorHotKey dictionary
+defaults write com.doomlaser.cursorcerer toggleCursorHotKey -dict keyCode -int 0 modifiers -int 0
+
 echo "=== Create required directories ==="
 mkdir -p ~/.config
 mkdir -p "$HOME/Library/Application Support/Code/User"
