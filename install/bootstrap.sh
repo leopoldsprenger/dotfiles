@@ -148,7 +148,7 @@ ln -sf "$DOTFILES/bash/bashrc" ~/.bashrc
 # Zsh
 ln -sf "$DOTFILES/zsh/zshrc" ~/.zshrc
 ln -sf "$DOTFILES/zsh/zprofile" ~/.zprofile
-ln -sf "$DOTFILES/p10k/p10k.zsh" ~/.p10k.zsh
+ln -sf "$DOTFILES/ohmyposh" ~/.config/ohmyposh
 
 # Git
 ln -sf "$DOTFILES/git/gitconfig" ~/.gitconfig

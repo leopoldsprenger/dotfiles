@@ -1,4 +1,5 @@
 felixkratz/formulae
+jandedobbeleer/oh-my-posh
 joncrangle/tap
 nikitabobko/tap
 romkatv/powerlevel10k

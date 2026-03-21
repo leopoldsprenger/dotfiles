@@ -89,6 +89,7 @@ ncurses
 neovim
 netpbm
 node
+oh-my-posh
 oniguruma
 openexr
 openjpeg
