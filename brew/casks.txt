@@ -10,4 +10,5 @@ linearmouse
 mactex-no-gui
 raycast
 sf-symbols
+shortcat
 visual-studio-code

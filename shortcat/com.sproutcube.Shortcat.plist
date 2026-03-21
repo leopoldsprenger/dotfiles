@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KeyboardShortcuts_click</key>
+	<string>{"carbonModifiers":0,"carbonKeyCode":36}</string>
+	<key>KeyboardShortcuts_debugElement</key>
+	<string>{"carbonModifiers":256,"carbonKeyCode":119}</string>
+	<key>KeyboardShortcuts_reloadUI</key>
+	<string>{"carbonModifiers":768,"carbonKeyCode":15}</string>
+	<key>KeyboardShortcuts_toggleLockUI</key>
+	<string>{"carbonModifiers":256,"carbonKeyCode":115}</string>
+	<key>KeyboardShortcuts_toggleShortcat</key>
+	<string>{"carbonKeyCode":40,"carbonModifiers":6912}</string>
+	<key>NSWindow Frame NSSpellCheckerSubstitutionsPanel2</key>
+	<string>692 403 348 141 0 0 2560 1440 </string>
+	<key>NSWindow Frame com.sindresorhus.Preferences.FrameAutosaveName</key>
+	<string>950 540 660 411 0 0 2560 1440 </string>
+	<key>SUFeedURL</key>
+	<string>https://updates.shortcat.app/appcast.xml</string>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SULastCheckTime</key>
+	<date>2026-03-21T09:45:49Z</date>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>493208091</integer>
+	<key>downKeycode</key>
+	<integer>38</integer>
+	<key>hidePanelByDefault</key>
+	<true/>
+	<key>leftKeycode</key>
+	<integer>4</integer>
+	<key>rightKeycode</key>
+	<integer>37</integer>
+	<key>telemetryIdentifier</key>
+	<string>2f46cea6c3e24ea9be6d18dcf9f051c6</string>
+	<key>upKeycode</key>
+	<integer>40</integer>
+	<key>welcomeDisplayed</key>
+	<true/>
+</dict>
+</plist>
