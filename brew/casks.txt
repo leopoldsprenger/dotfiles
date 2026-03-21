@@ -1,5 +1,4 @@
 aerospace
-discord
 firefox
 font-hack-nerd-font
 font-jetbrains-mono-nerd-font
@@ -11,5 +10,4 @@ linearmouse
 mactex-no-gui
 raycast
 sf-symbols
-slack
 visual-studio-code
