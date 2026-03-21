@@ -28,6 +28,8 @@ M.nvdash = {
   end)(),
 }
 
+vim.o.relativenumber = true
+
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     local args = vim.fn.argv()
