@@ -36,7 +36,6 @@ harfbuzz
 hdrhistogram_c
 highway
 icu4c@78
-imagemagick
 imath
 isl
 isort
@@ -50,9 +49,7 @@ libarchive
 libavif
 libb2
 libdatrie
-libde265
 libdeflate
-libheif
 libidn
 libmpc
 libnghttp2
@@ -82,7 +79,6 @@ luv
 lz4
 lzo
 m4
-media-control
 mpdecimal
 mpfr
 ncurses
@@ -104,12 +100,9 @@ python@3.14
 readline
 ripgrep
 ruff
-shared-mime-info
 simdjson
 sketchybar
-sketchybar-system-stats
 sqlite
-switchaudio-osx
 tcl-tk
 tesseract
 tree
@@ -122,7 +115,6 @@ uvwasi
 wakatime-cli
 wakeonlan
 webp
-x265
 xorgproto
 xz
 yyjson
