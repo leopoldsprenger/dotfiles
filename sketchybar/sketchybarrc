@@ -1,5 +1,96 @@
-#!/usr/bin/env lua
+PLUGIN_DIR="$CONFIG_DIR/plugins"
 
--- Load the sketchybar-package and prepare the helper binaries
-require("helpers")
-require("init")
+BG_COLOR=0xCC222436
+BRACKET_BLUR_RADIUS=22
+BAR_BLUR_RADIUS=50
+UNIFORM_CORNER_RADIUS=12
+
+# Top bar
+sketchybar --bar position=top height=40 blur_radius=$BAR_BLUR_RADIUS color=0x00000000 padding_left=10 padding_right=10
+
+# Default settings
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="JetBrainsMono Nerd Font:Bold:19.0"
+  label.font="JetBrainsMono Nerd Font:Bold:16.0"
+  icon.color=0xffc8d3f5
+  label.color=0xffc8d3f5
+  icon.padding_left=12    # small extra spacing inside each item
+  icon.padding_right=6
+  label.padding_left=6
+  label.padding_right=12
+  background.color=$BG_COLOR
+  background.corner_radius=$UNIFORM_CORNER_RADIUS
+  background.height=30
+  background.drawing=on
+  background.border_width=0
+)
+sketchybar --default "${default[@]}"
+
+############################
+# SPACES (LEFT)
+############################
+SPACE_ICONS=("○" "○" "○" "○" "○")
+for i in "${!SPACE_ICONS[@]}"; do
+  sid="$(($i+1))"
+  space=(
+    icon="${SPACE_ICONS[i]}"
+    icon.font="JetBrainsMono Nerd Font:Bold:22.0"
+    padding_left=4    # extra spacing inside item
+    padding_right=4
+    label.drawing=off
+    script="$PLUGIN_DIR/update_spaces.sh"
+    click_script="aerospace workspace $sid; $PLUGIN_DIR/update_spaces.sh"
+  )
+  sketchybar --add item space."$sid" left --set space."$sid" "${space[@]}" --subscribe space."$sid" aerospace_workspace_change
+done
+
+# Single bracket for spaces
+sketchybar --add bracket spaces space.1 space.2 space.3 space.4 space.5 \
+           --set spaces background.color=$BG_COLOR \
+           background.drawing=on \
+           blur_radius=$BRACKET_BLUR_RADIUS \
+           background.border_width=0 \
+           background.corner_radius=$UNIFORM_CORNER_RADIUS \
+           padding_left=28 padding_right=28
+
+############################
+# RIGHT SIDE: BATTERY → VOLUME → CLOCK
+############################
+# Clock (farthest right) with internal padding
+sketchybar --add item clock right \
+           --set clock update_freq=10 icon= script="$PLUGIN_DIR/clock.sh" \
+           padding_left=6 padding_right=6
+
+# Volume (middle) with internal padding
+sketchybar --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change \
+           padding_left=6 padding_right=6
+
+# Battery (left-most in bracket) with internal padding
+BATTERY_PERCENT="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1 || true)"
+if [ -n "$BATTERY_PERCENT" ]; then
+  sketchybar --add item battery right \
+             --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+             --subscribe battery system_woke power_source_change \
+             padding_left=6 padding_right=6
+fi
+
+# Bracket for right items (battery → volume → clock)
+sketchybar --add bracket right_items battery volume clock \
+           --set right_items background.color=$BG_COLOR \
+           background.drawing=on \
+           blur_radius=$BRACKET_BLUR_RADIUS \
+           background.border_width=0 \
+           background.corner_radius=$UNIFORM_CORNER_RADIUS \
+           padding_left=24 padding_right=24
+
+############################
+# Dummy updater for spaces
+############################
+sketchybar --add item dummy right \
+           --set dummy drawing=off update_freq=1 script="$PLUGIN_DIR/update_spaces.sh"
+
+sketchybar --update
