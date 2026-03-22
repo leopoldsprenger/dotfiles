@@ -17,3 +17,4 @@ title = " "
 confirm-close-surface = false
 window-padding-color = extend-always
 quit-after-last-window-closed = true
+shell-integration-features = no-cursor

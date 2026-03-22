@@ -1,4 +1,5 @@
 version = 4
+enable_cursor_positioning = true
 final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
