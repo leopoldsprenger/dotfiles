@@ -13,7 +13,7 @@ return {
     end,
   },
 
-  -- Plugin to display custom ascii art in NvDash 
+  -- Plugin to display custom ascii art in NvDash
   {
     "MaximilianLloyd/ascii.nvim",
     dependencies = {
@@ -22,8 +22,14 @@ return {
   },
 
   {
-    'wakatime/vim-wakatime', 
+    "wakatime/vim-wakatime",
     lazy = false,
+  },
+
+  -- File tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
   },
 
   {
@@ -96,16 +102,22 @@ return {
   -- { import = "nvchad.blink.lazyspec" },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "javascript",
-       "go", "python", "cpp",
-       "typst"
-  		},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "javascript",
+        "go",
+        "python",
+        "cpp",
+        "typst",
+      },
       highlight = { enable = true },
-  	},
+    },
   },
 
   {

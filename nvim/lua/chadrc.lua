@@ -1,4 +1,3 @@
-
 local M = {}
 
 local bg_main = "#222436"
@@ -23,7 +22,7 @@ M.base46 = {
 M.nvdash = {
   load_on_startup = true,
   header = (function()
-    local ascii = require("ascii")
+    local ascii = require "ascii"
     return ascii.art.text.neovim.ansi_shadow
   end)(),
 }
@@ -43,4 +42,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 return M
-
