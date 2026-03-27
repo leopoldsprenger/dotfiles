@@ -5,7 +5,7 @@ mkdir -p "$HOME/bin"
 
 TAG="v1.0.0"
 REPO="leopoldsprenger/termtools"
-ASSET="open-project.sh"
+ASSET="create-new-project.sh"
 DIR="$HOME/bin"
 
 if [ ! -f "$HOME/bin/$ASSET" ]; then

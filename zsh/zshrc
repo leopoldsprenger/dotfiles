@@ -59,6 +59,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias projects="$HOME/bin/open-project.sh"
+alias mkproj="$HOME/bin/create-new-project.sh"
 
 # shell integrations
 eval "$(fzf --zsh)"

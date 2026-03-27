@@ -41,6 +41,10 @@ bash "$SCRIPTS_DIR/raycast_configure.sh"
 # configure brew and login services
 bash "$SCRIPTS_DIR/services_configure.sh"
 
+# term tools
+bash "$SCRIPTS_DIR/open_project_install.sh"
+bash "$SCRIPTS_DIR/make_project_install.sh"
+
 # macos system settings
 bash "$SCRIPTS_DIR/macos_settings_configure.sh"
 
