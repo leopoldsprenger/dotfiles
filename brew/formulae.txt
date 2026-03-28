@@ -96,7 +96,6 @@ pango
 pcre2
 pixman
 pkgconf
-pyenv
 python@3.14
 readline
 ripgrep
@@ -112,6 +111,7 @@ tree-sitter@0.25
 typst
 unibilium
 utf8proc
+uv
 uvwasi
 wakatime-cli
 wakeonlan
