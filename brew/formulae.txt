@@ -26,6 +26,7 @@ gettext
 gh
 ghostscript
 giflib
+git
 glib
 gmp
 go
