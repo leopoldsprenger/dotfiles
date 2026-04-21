@@ -5,10 +5,10 @@ return {
     init = function()
       vim.g.vimtex_view_method = "skim"
       vim.g.vimtex_compiler_method = "latexmk"
+      vim.g.vimtex_quickfix_mode = 0
 
-      -- IMPORTANT: use out_dir, not raw latexmk flags for state tracking
       vim.g.vimtex_compiler_latexmk = {
-        build_dir = "build",
+        out_dir = "build",
         options = {
           "-pdf",
           "-interaction=nonstopmode",
@@ -16,7 +16,24 @@ return {
         },
       }
 
-      vim.g.vimtex_quickfix_mode = 0
+      vim.g.vimtex_root_methods = { "git", "general", "current" }
     end,
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        texlab = {
+          settings = {
+            texlab = {
+              build = {
+                onSave = false,
+              },
+            },
+          },
+        },
+      },
+    },
   },
 }
