@@ -65,8 +65,10 @@ return {
         -- Treesitter tooling
         "tree-sitter-cli",
 
-        -- Typst
+        -- Latex / Typst
         "tinymist",
+        "texlab",
+        "latexindent"
       },
       automatic_installation = true,
     },

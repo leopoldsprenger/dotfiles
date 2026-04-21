@@ -1,4 +1,5 @@
 aerospace
+balenaetcher
 cursorcerer
 firefox
 font-hack-nerd-font
@@ -10,4 +11,5 @@ mactex-no-gui
 raycast
 sf-symbols
 shortcat
-visual-studio-code
+skim
+vscodium

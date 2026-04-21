@@ -1,7 +1,7 @@
-
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "lua_ls", "html", "cssls", "ts_ls", "gopls", "basedpyright", "ruff", "clangd", "tinymist" }
+local servers = { "lua_ls", "html", "cssls", "ts_ls", "gopls", "basedpyright", "ruff", "clangd", "tinymist",
+  "latexindent" }
 vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -22,4 +22,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
-
