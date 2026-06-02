@@ -58,7 +58,7 @@ symlink_git() {
 
 symlink_vscode() {
   echo "Setting up VS Code configs..."
-  local vscode_user="$HOME/Library/Application Support/Code/User"
+  local vscode_user="$HOME/Library/Application Support/VSCodium/User"
   mkdir -p "$vscode_user"
   symlink "$DOTFILES_DIR/vscode/settings.json" "$vscode_user/settings.json"
   symlink "$DOTFILES_DIR/vscode/keybindings.json" "$vscode_user/keybindings.json"

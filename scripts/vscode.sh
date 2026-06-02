@@ -19,14 +19,14 @@ install() {
   fi
 
   echo "Installing VSCode extensions from $VSCODE_EXTENSIONS_FILE..."
-  xargs -n 1 code --install-extension < "$VSCODE_EXTENSIONS_FILE"
+  xargs -n 1 codium --install-extension < "$VSCODE_EXTENSIONS_FILE"
   echo "VSCode extensions installation complete."
 }
 
 dump() {
   echo "Exporting currently installed VSCode extensions to $VSCODE_EXTENSIONS_FILE..."
   mkdir -p "$(dirname "$VSCODE_EXTENSIONS_FILE")"
-  code --list-extensions > "$VSCODE_EXTENSIONS_FILE"
+  codium --list-extensions > "$VSCODE_EXTENSIONS_FILE"
   echo "VSCode extensions exported."
 }
 
