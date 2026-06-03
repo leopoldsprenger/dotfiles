@@ -80,14 +80,8 @@
         modules = [
           commonConfig
           ./hosts/macmini.nix
+
           nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "leopoldsprenger"
-            };
-          }
         ];
       };
   };
