@@ -9,13 +9,14 @@
   };
 
   nix-homebrew = {
-    enable = true;
+    enable = false; # change this later
     enableRosetta = true;
     user = "leopoldsprenger";
+    mutableTaps = false;
   };
 
   homebrew = {
-    enable = true;
+    enable = false; # change this later too
 
     brews = [
       "mas"
