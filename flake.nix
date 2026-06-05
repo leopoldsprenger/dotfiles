@@ -8,76 +8,39 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, nix-homebrew, ... }:
+  outputs = { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
   let
-    commonConfig = { pkgs, config, ... }: {
-      nixpkgs.config.allowUnfree = true;
+    systemConfig = import ./modules/system.nix;
+  in
+  {
+    darwinConfigurations.macmini = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
 
-      nix.enable = true;
+      modules = [
+        { _module.args = { inherit self; }; }
 
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+        systemConfig
+        ./hosts/macmini.nix
 
-      environment.systemPackages = with pkgs; [
-        mkalias
-      ];
+        nix-homebrew.darwinModules.nix-homebrew
 
-      homebrew = {
-        enable = true;
-        brews = [
-          "mas"
-        ];
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
 
-        casks = [ ];
-        masApps = { };
-
-        onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
-      };
-
-      fonts.packages = [ ];
-
-      system.activationScripts.applications.text =
-        let
-          env = pkgs.buildEnv {
-            name = "system-applications";
-            paths = config.environment.systemPackages;
-            pathsToLink = [ "/Applications" ];
+          home-manager.users.leopoldsprenger = {
+            imports = [ ./home/leopold.nix ];
           };
-        in
-        pkgs.lib.mkForce ''
-          echo "setting up /Applications..." >&2
-          rm -rf /Applications/Nix\ Apps
-          mkdir -p /Applications/Nix\ Apps
-
-          find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-          while read -r src; do
-            app_name=$(basename "$src")
-            echo "copying $src" >&2
-            ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-          done
-        '';
-
-      system.configurationRevision =
-        self.rev or self.dirtyRev or null;
-
-      system.stateVersion = 6;
-
-      nixpkgs.hostPlatform = "aarch64-darwin";
+        }
+      ];
     };
-  in {
-    darwinConfigurations.macmini =
-      nix-darwin.lib.darwinSystem {
-        modules = [
-          commonConfig
-          ./hosts/macmini.nix
-          nix-homebrew.darwinModules.nix-homebrew
-        ];
-      };
   };
 }
