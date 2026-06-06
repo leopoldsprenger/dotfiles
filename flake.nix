@@ -36,6 +36,8 @@
           ./modules/homebrew.nix
           ./modules/defaults.nix
 
+          ./modules/mousecape.nix
+
           ./hosts/macmini.nix
 
           nix-homebrew.darwinModules.nix-homebrew
@@ -64,6 +66,8 @@
           ./modules/fonts.nix
           ./modules/homebrew.nix
           ./modules/defaults.nix
+
+          ./modules/mousecape.nix
 
           ./hosts/macbook.nix
 

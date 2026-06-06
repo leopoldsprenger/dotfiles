@@ -8,7 +8,19 @@
 
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    neovim
+
+    ripgrep
+    fd
+    fzf
+    tree
+    zoxide
+
+    ruff
+    uv
+    typst
+  ];
 
   launchd.agents = {
     things-autostart = {

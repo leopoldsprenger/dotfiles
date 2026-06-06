@@ -13,14 +13,25 @@
   system.primaryUser = "leopoldsprenger";
 
   environment.systemPackages = with pkgs; [
-    # alias nix apps to /Applications/ for spotlight indexing
+    git
     mkalias
-    # set desktop wallpaper and finder favorites
-    desktoppr
-    mysides
+
+    # core dev toolchain
+    go
+    lua
+    nodejs
+
+    cmake
+    catch2_3
+
+    # system-level CLI tools
+    gh
   ];
 
-  fonts.packages = [ ];
+
+  fonts.packages = [
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
 
   system.stateVersion = 6;
 
