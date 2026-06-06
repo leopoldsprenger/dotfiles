@@ -13,7 +13,11 @@
   system.primaryUser = "leopoldsprenger";
 
   environment.systemPackages = with pkgs; [
+    # alias nix apps to /Applications/ for spotlight indexing
     mkalias
+    # set desktop wallpaper and finder favorites
+    desktoppr
+    mysides
   ];
 
   fonts.packages = [ ];
