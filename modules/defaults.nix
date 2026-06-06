@@ -47,6 +47,14 @@
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
 
+      # sidebar icon size medium
+      NSTableViewDefaultSizeMode = 2;
+
+      # show scrollbar based on mouse or trackpad
+      AppleShowScrollBars = "Automatic";
+      # jump to spot that was clicked on scrollbar
+      AppleScrollerPagingBehavior = true;
+
       _HIHideMenuBar = true;
       
       # enable natural scroll
@@ -76,6 +84,10 @@
     };
 
     CustomUserPreferences = {
+      # tint window color to wallpaper
+      "NSGlobalDomain" = {
+        AppleReduceDesktopTinting = false;
+      };
       "com.apple.screensaver" = {
         showLargeClock = false;
       };
@@ -130,6 +142,10 @@
       defaults write com.apple.finder AppleShowAllFiles YES
       
       MYSIDES="${pkgs.mysides}/bin/mysides"
+      
+      # remove apple default favorites and recents
+      $MYSIDES remove all
+
       add_favorite() {
         local name="$1"
         local path="$2"
@@ -145,11 +161,32 @@
       add_favorite "Downloads" "$HOME/Downloads"
       add_favorite "Documents" "$HOME/Documents"
       add_favorite "Projects" "$HOME/Documents/projects"
-      add_favorite "iCloud" "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+      
+      # base directory for icloud storage path
+      ICLOUD_BASE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+
+      # ensure your custom icloud subdirectories exist locally
+      mkdir -p "$ICLOUD_BASE/01 Life Admin"
+      mkdir -p "$ICLOUD_BASE/02 Health"
+      mkdir -p "$ICLOUD_BASE/03 Personal"
+      mkdir -p "$ICLOUD_BASE/04 Academics"
+      mkdir -p "$ICLOUD_BASE/05 Business"
+      mkdir -p "$ICLOUD_BASE/06 Archive"
+
+      # map individual icloud subfolders into favorites layout
+      add_favorite "01 Life Admin" "$ICLOUD_BASE/01 Life Admin"
+      add_favorite "02 Health" "$ICLOUD_BASE/02 Health"
+      add_favorite "03 Personal" "$ICLOUD_BASE/03 Personal"
+      add_favorite "04 Academics" "$ICLOUD_BASE/04 Academics"
+      add_favorite "05 Business" "$ICLOUD_BASE/05 Business"
+      add_favorite "06 Archive" "$ICLOUD_BASE/06 Archive"
+
+      # add library and applications at the bottom
+      add_favorite "Library" "$HOME/Library"
+      add_favorite "Applications" "/Applications"
 
       # restart finder
       killall Finder
 EOF
   '';
 }
-
