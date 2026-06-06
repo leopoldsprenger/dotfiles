@@ -1,5 +1,5 @@
 {
-  description = "Leopold's Mac nix-darwin system flake";
+  description = "Leopold's nix-darwin configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -15,32 +15,70 @@
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
-  let
-    systemConfig = import ./modules/system.nix;
-  in
-  {
-    darwinConfigurations.macmini = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
+  outputs = {
+    self,
+    nix-darwin,
+    nix-homebrew,
+    home-manager,
+    ...
+  }: {
 
-      modules = [
-        { _module.args = { inherit self; }; }
+    darwinConfigurations.macmini =
+      nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
 
-        systemConfig
-        ./hosts/macmini.nix
+        modules = [
+          { _module.args = { inherit self; }; }
 
-        nix-homebrew.darwinModules.nix-homebrew
+          ./modules/system.nix
+          ./modules/packages.nix
+          ./modules/fonts.nix
+          ./modules/homebrew.nix
+          ./modules/defaults.nix
 
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          ./hosts/macmini.nix
 
-          home-manager.users.leopoldsprenger = {
-            imports = [ ./home/leopold.nix ];
-          };
-        }
-      ];
-    };
+          nix-homebrew.darwinModules.nix-homebrew
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.leopoldsprenger.imports = [
+              ./home/leopold.nix
+            ];
+          }
+        ];
+      };
+
+    darwinConfigurations.macbook =
+      nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+
+        modules = [
+          { _module.args = { inherit self; }; }
+
+          ./modules/system.nix
+          ./modules/packages.nix
+          ./modules/fonts.nix
+          ./modules/homebrew.nix
+          ./modules/defaults.nix
+
+          ./hosts/macbook.nix
+
+          nix-homebrew.darwinModules.nix-homebrew
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.leopoldsprenger.imports = [
+              ./home/leopold.nix
+            ];
+          }
+        ];
+      };
   };
 }
