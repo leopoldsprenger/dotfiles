@@ -27,6 +27,7 @@
       "cursorcerer"
 
       # browsers + core apps
+      "zen"
       "obsidian"
       "logseq"
       "notion"

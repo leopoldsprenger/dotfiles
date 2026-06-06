@@ -1,4 +1,3 @@
-# modules/mousecape.nix
 { config, pkgs, ... }:
 
 let
@@ -7,10 +6,11 @@ let
     version = "Tahoe-PreRelease";
 
     src = pkgs.fetchurl {
-      url = "https://github.com";
-      hash = ""; 
+      name = "Mousecape-Tahoe-PreRelease.zip";
+      url = "https://github.com/AdamWawrzynkowskiGF/Mousecape-TahoeSupport/releases/download/PreRelease-v01/Mousecape-Tahoe-PreRelease.zip";
+      hash = "sha256-Ltg9EsCQkeabnQa3+zKLKg0L21Oma5TvA7KUklLdsWg=";
     };
-
+ 
     nativeBuildInputs = [ pkgs.unzip ];
 
     unpackPhase = "unzip $src";
@@ -28,19 +28,21 @@ in
 {
   environment.systemPackages = [ mousecape-tahoe ];
 
-  system.activationScripts.postUserActivation.text = ''
+  system.activationScripts.postActivation.text = ''
     ln -sfn "${mousecape-tahoe}/Applications/Mousecape.app" "/Applications/Mousecape.app"
 
-    DOTFILES_DIR="$HOME/dotfiles"
+    sudo -u leopoldsprenger bash -c '
+      DOTFILES_DIR="$HOME/dotfiles"
 
-    if [ -d "$DOTFILES_DIR/mousecape" ]; then
-      /usr/bin/open -g -a Mousecape \
-        "$DOTFILES_DIR/mousecape/vision.cursor.white.cape" \
-        "$DOTFILES_DIR/mousecape/vision.cursor.black.cape"
+      if [ -d "$DOTFILES_DIR/mousecape" ]; then
+        /usr/bin/open -g -a Mousecape \
+          "$DOTFILES_DIR/mousecape/vision.cursor.white.cape" \
+          "$DOTFILES_DIR/mousecape/vision.cursor.black.cape"
 
-      sleep 2
+        sleep 2
 
-      /usr/bin/osascript -e 'quit app "Mousecape"'
-    fi
+        /usr/bin/osascript -e '"'"'quit app Mousecape'"'"'
+      fi
+    '
   '';
 }
