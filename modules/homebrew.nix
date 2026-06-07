@@ -2,13 +2,13 @@
 
 {
   nix-homebrew = {
-    enable = false; # change this later
+    enable = true; 
     user = "leopoldsprenger";
     mutableTaps = false;
   };
 
   homebrew = {
-    enable = false; # change this later
+    enable = true;
 
     taps = [
 
