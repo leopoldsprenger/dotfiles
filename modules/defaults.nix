@@ -202,17 +202,6 @@
       add_favorite "Documents" "$HOME/Documents"
       add_favorite "Projects" "$HOME/Documents/projects"
       
-      # base directory for icloud storage path
-      ICLOUD_BASE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
-
-      # ensure your custom icloud subdirectories exist locally
-      mkdir -p "$ICLOUD_BASE/01 Life Admin"
-      mkdir -p "$ICLOUD_BASE/02 Health"
-      mkdir -p "$ICLOUD_BASE/03 Personal"
-      mkdir -p "$ICLOUD_BASE/04 Academics"
-      mkdir -p "$ICLOUD_BASE/05 Business"
-      mkdir -p "$ICLOUD_BASE/06 Archive"
-
       # map individual icloud subfolders into favorites layout
       add_favorite "01 Life Admin" "$ICLOUD_BASE/01 Life Admin"
       add_favorite "02 Health" "$ICLOUD_BASE/02 Health"
