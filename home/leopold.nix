@@ -11,6 +11,7 @@
     ./ghostty.nix
     ./nvim.nix
     ./cursorcerer.nix
+    ./linearmouse.nix
   ];
 
   home.stateVersion = "24.11";
