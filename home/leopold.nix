@@ -12,6 +12,7 @@
     ./nvim.nix
     ./cursorcerer.nix
     ./linearmouse.nix
+    ./borders.nix
   ];
 
   home.stateVersion = "24.11";

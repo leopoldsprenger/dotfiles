@@ -15,7 +15,6 @@
     ];
 
     brews = [
-      "borders"
       "sketchybar"
     ];
 

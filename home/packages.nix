@@ -14,8 +14,7 @@
       ruff
       uv
       typst
-    ]
-    ++ [
+    ] ++ [
       customPackages.mousecape
     ];
 }
