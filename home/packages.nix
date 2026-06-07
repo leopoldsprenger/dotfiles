@@ -3,6 +3,9 @@
 {
   home.packages =
     with pkgs; [
+      git
+      gh
+
       # CLI utilities
       ripgrep
       fd
@@ -14,6 +17,9 @@
       ruff
       uv
       typst
+      go
+      lua
+      nodejs
     ] ++ [
       customPackages.mousecape
     ];
