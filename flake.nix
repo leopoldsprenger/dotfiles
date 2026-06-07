@@ -29,7 +29,6 @@
     customPackages = import ./packages { inherit pkgs; };
   in {
     packages.${system} = {
-      asyar = pkgs.callPackage ./packages/asyar.nix { };
       mousecape = pkgs.callPackage ./packages/mousecape.nix { };
     };
 

@@ -3,6 +3,7 @@
 {
   imports = [
     ./mousecape.nix
+    ./supercmd.nix
   ];
 
   home.stateVersion = "24.11";

@@ -173,7 +173,7 @@
       killall Dock
 
       # set wallpaper
-      WALLPAPER_PATH="$HOME/dotfiles/wallpapers/dark-mountains.jpg"
+      WALLPAPER_PATH="$HOME/dotfiles/resources/wallpapers/dark-mountains.jpg"
       if [ -f "$WALLPAPER_PATH" ]; then
         ${pkgs.desktoppr}/bin/desktoppr "$WALLPAPER_PATH"
       fi
