@@ -9,6 +9,7 @@
     ./aerospace.nix
     ./git.nix
     ./ghostty.nix
+    ./nvim.nix
   ];
 
   home.stateVersion = "24.11";
