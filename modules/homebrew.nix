@@ -24,6 +24,7 @@
       "linearmouse"
       "cursorcerer"
       "supercmdlabs/supercmd/supercmd"
+      "ghostty"
 
       # browsers + core apps
       "zen"

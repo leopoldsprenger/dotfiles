@@ -34,13 +34,13 @@
     "system-window-management-fill": "",
     "system-window-management-increase-size-10": "",
     "system-window-management-decrease-size-10": "",
-    "app-finder": "Shift+Control+Alt+Command+F",
-    "app-firefox": "Shift+Control+Alt+Command+B",
-    "app-ghostty": "Shift+Control+Alt+Command+T",
-    "app-notes": "Shift+Control+Alt+Command+N",
-    "app-obsidian": "Shift+Control+Alt+Command+O",
+    "app-finder": "Hyper+F",
+    "app-firefox": "",
+    "app-ghostty": "Hyper+T",
+    "app-notes": "Hyper+N",
+    "app-obsidian": "Hyper+O",
     "system-emoji-picker": "Command+Control+Space",
-    "app-vscodium": "Shift+Control+Alt+Command+E"
+    "app-vscodium": ""
   },
   "commandAliases": {
     "app-aerospace": "aero",
