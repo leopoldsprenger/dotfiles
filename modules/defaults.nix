@@ -7,21 +7,22 @@
       autohide = true;
       orientation = "left";
       show-recents = false;
+      tilesize = 24;
       persistent-apps = [
-        "/Applications/Nix Apps/Zen Browser.app"
+        "/Applications/Zen Browser.app"
         
         "/Applications/Things3.app"
         "/System/Applications/Calendar.app"
 
-        "/Applications/Nix Apps/Logseq.app"
+        "/Applications/Logseq.app"
         "/System/Applications/Notes.app"
 
         "/System/Applications/Messages.app"
         "/Applications/WhatsApp.app"
-        "/Applications/Nix Apps/Signal.app"
+        "/Applications/Signal.app"
         "/System/Applications/Mail.app"
         
-        "/Applications/Nix Apps/Ghostty.app"
+        "/Applications/Ghostty.app"
       ];
     };
 

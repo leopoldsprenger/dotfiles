@@ -1,4 +1,0 @@
-felixkratz/formulae
-jandedobbeleer/oh-my-posh
-nikitabobko/tap
-romkatv/powerlevel10k
