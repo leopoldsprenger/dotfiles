@@ -1,48 +1,72 @@
-# Dotfiles Bootstrap
+# MacOS Nix-Darwin Dotfiles
 
-This repository contains all of my versioned dotfiles and a bootstrap script to set up a macOS dev environment from scratch.
+Declarative macOS system configuration using:
 
-## Setup Instructions
+- nix-darwin
+- home-manager
+- nix-homebrew
 
-1. Clone the repository into your home directory:
+---
+
+## Fresh Installation (Clean Machine)
+
+### 1. Install Nix
+
 ```bash
-git clone https://github.com/leopoldsprenger/dotfiles.git ~/dotfiles
+sh <(curl -L https://nixos.org/nix/install)
 ```
-2. Change into the dotfiles directory:
+
+---
+
+### 2. Enable Flakes
+
 ```bash
-cd ~/dotfiles
+mkdir -p ~/.config/nix
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
-3. Make the bootstrap script executable:
+
+---
+
+### 3. Clone Dotfiles
+
 ```bash
-chmod +x bootstrap.sh
+nix-shell -p git --run 'git clone https://github.com/leopoldsprenger/dotfiles.git ~/dotfiles'
 ```
-4. Run the bootstrap script:
+
+---
+
+### 4. Activate System
+
+#### Mac Mini
+
 ```bash
-./install/bootstrap.sh
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles#macmini
 ```
-5. Select the desired cursor theme when Mousecape leopoldsprenger
 
-> Note: I may need to restart my PC for the config to take effect
+#### MacBook
 
-## What the script does
+```bash
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles#macbook
+```
 
-The script will:
+---
 
-- Install Homebrew if it is not already installed.
-- Install all Homebrew formulae and casks listed in the Brewfile.
-- Install Oh My Zsh if it is missing.
-- Install pico8 and CLI for pico8 development
-- Create necessary directories for configs.
-- Symlink all dotfiles to their appropriate locations:
-  - Bash and Zsh configs, including P10k prompt.
-  - Git config and global ignore.
-  - VS Code settings, keybindings, and extensions.
-  - Neovim configuration.
-  - AerospaceWM configuration.
-  - SketchyBar configuration.
-  - Janky Borders configuration.
-  - Ghostty configuration.
-- Apply macOS defaults tweaks:
-  - Hide the menu bar automatically.
-  - Hide the Dock instantly with no animation.
-- Add a script as ~/bin/open-project.sh to fuzzy find projects in the ~/Documents/projects directory
+### 5. Future updates
+
+```bash
+darwin-rebuild switch --flake ~/dotfiles#macmini
+```
+
+or
+
+```bash
+darwin-rebuild switch --flake ~/dotfiles#macbook
+```
+
+---
+
+## Updating the Nix Flake
+
+```bash
+nix flake update
+```
