@@ -1,11 +1,13 @@
-# macOS files
+# Nix build outputs
+result
+result-*
+
+# macOS
 .DS_Store
 
-# SSH and security
-ssh/known_hosts
-ssh/id_*
-ssh/*.pub
+# Temporary editor files
+*.swp
+*.swo
 
-# Logs and caches
-*.log
-.cache/
+# Machine-specific backups
+backup/
