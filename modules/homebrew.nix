@@ -12,7 +12,6 @@
 
     taps = [
       "FelixKratz/formulae"     # sketchybar
-      "nikitabobko/tap"         # aerospace
     ];
 
     brews = [
@@ -22,7 +21,6 @@
 
     casks = [
       # dev + desktop managers
-      "aerospace"
       "linearmouse"
       "cursorcerer"
       "supercmdlabs/supercmd/supercmd"

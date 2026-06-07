@@ -20,6 +20,9 @@
 
       # Prompt
       oh-my-posh
+
+      # desktop environment
+      aerospace
     ]
     ++ [
       customPackages.mousecape

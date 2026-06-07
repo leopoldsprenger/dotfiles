@@ -6,6 +6,8 @@
 
     ./mousecape.nix
     ./supercmd.nix
+    ./aerospace.nix
+    ./git.nix
   ];
 
   home.stateVersion = "24.11";

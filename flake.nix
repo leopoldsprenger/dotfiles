@@ -54,6 +54,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            home-manager.backupFileExtension = "backup";
+
             home-manager.extraSpecialArgs = { inherit self customPackages; };
 
             home-manager.users.leopoldsprenger.imports = [
@@ -84,6 +86,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+
+            home-manager.backupFileExtension = "backup";
 
             home-manager.extraSpecialArgs = { inherit self customPackages; };
 

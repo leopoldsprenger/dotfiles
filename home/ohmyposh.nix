@@ -1,9 +1,9 @@
-{ ... }:
+{ pkgs, ... }: 
 
 {
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
-    configFile = ../resources/ohmyposh/ohmyposh.toml;
+    settings = pkgs.lib.importTOML ../resources/ohmyposh/ohmyposh.toml;
   };
 }
