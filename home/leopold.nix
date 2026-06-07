@@ -10,6 +10,7 @@
     ./git.nix
     ./ghostty.nix
     ./nvim.nix
+    ./cursorcerer.nix
   ];
 
   home.stateVersion = "24.11";
