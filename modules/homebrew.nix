@@ -11,11 +11,11 @@
     enable = false; # change this later
 
     taps = [
-      "FelixKratz/formulae"     # sketchybar
+
     ];
 
     brews = [
-      "sketchybar"
+    
     ];
 
     casks = [

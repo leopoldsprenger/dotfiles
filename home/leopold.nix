@@ -13,6 +13,7 @@
     ./cursorcerer.nix
     ./linearmouse.nix
     ./borders.nix
+    ./sketchybar.nix
   ];
 
   home.stateVersion = "24.11";
