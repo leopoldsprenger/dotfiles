@@ -12,27 +12,6 @@
 
   system.primaryUser = "leopoldsprenger";
 
-  environment.systemPackages = with pkgs; [
-    git
-    mkalias
-
-    # core dev toolchain
-    go
-    lua
-    nodejs
-
-    cmake
-    catch2_3
-
-    # system-level CLI tools
-    gh
-  ];
-
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
   system.stateVersion = 6;
 
   nixpkgs.hostPlatform = "aarch64-darwin";

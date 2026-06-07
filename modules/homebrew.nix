@@ -25,6 +25,7 @@
       "aerospace"
       "linearmouse"
       "cursorcerer"
+      "supercmdlabs/supercmd/supercmd"
 
       # browsers + core apps
       "zen"

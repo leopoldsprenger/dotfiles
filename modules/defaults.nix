@@ -91,11 +91,27 @@
       "com.apple.screensaver" = {
         showLargeClock = false;
       };
-      # disable spotlight trigger and file search
       "com.apple.symbolichotkeys" = {
         AppleSymbolicHotKeys = {
+          # disable spotlight trigger and file search
           "64" = { enabled = false; };
           "65" = { enabled = false; };
+          # set keyboard layout switching to cmd shift l
+          "60" = {
+            enabled = true;
+            value = {
+              parameters = [
+                108
+                37
+                1179648
+              ];
+              type = "standard";
+            };
+          };
+          # disable secondary hotkey for switching languages
+          "61" = {
+            enabled = false;
+          };
         };
       };
       # disable crash report dialog box
@@ -116,6 +132,30 @@
         # set bottom right to quick note with cmd modifier
         wvous-br-corner = 14;
         wvous-br-modifier = 1048576;
+      };
+      # define keyboard layouts
+      "com.apple.HIToolbox" = {
+        AppleEnabledInputSources = [
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 0;
+            "KeyboardLayout Name" = "U.S.";
+          }
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 9;
+            "KeyboardLayout Name" = "German";
+          }
+          {
+            BundleID = "com.apple.inputmethod.Kotoeri";
+            InputSourceKind = "Input Mode";
+            "InputModeName" = "com.apple.inputmethod.Japanese";
+          }
+          {
+            BundleID = "com.apple.inputmethod.Kotoeri";
+            InputSourceKind = "Keyboard Input Method";
+          }
+        ];
       };
     };
   };
@@ -187,6 +227,9 @@
 
       # restart finder
       killall Finder
+
+      # flush preferences cache for CustomUserPreferences to take effect
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 EOF
   '';
 }

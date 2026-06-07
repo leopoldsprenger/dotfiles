@@ -17,26 +17,34 @@
 
   outputs = {
     self,
+    nixpkgs,
     nix-darwin,
     nix-homebrew,
     home-manager,
     ...
-  }: {
+  }: 
+  let
+    system = "aarch64-darwin";
+    pkgs = import nixpkgs { inherit system; };
+    customPackages = import ./packages { inherit pkgs; };
+  in {
+    packages.${system} = {
+      asyar = pkgs.callPackage ./packages/asyar.nix { };
+      mousecape = pkgs.callPackage ./packages/mousecape.nix { };
+    };
 
     darwinConfigurations.macmini =
       nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        inherit system;
 
         modules = [
-          { _module.args = { inherit self; }; }
+          { _module.args = { inherit self customPackages; }; }
 
           ./modules/system.nix
           ./modules/packages.nix
           ./modules/fonts.nix
           ./modules/homebrew.nix
           ./modules/defaults.nix
-
-          ./modules/mousecape.nix
 
           ./hosts/macmini.nix
 
@@ -47,6 +55,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
+            home-manager.extraSpecialArgs = { inherit self customPackages; };
+
             home-manager.users.leopoldsprenger.imports = [
               ./home/leopold.nix
             ];
@@ -56,18 +66,16 @@
 
     darwinConfigurations.macbook =
       nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        inherit system;
 
         modules = [
-          { _module.args = { inherit self; }; }
+          { _module.args = { inherit self customPackages; }; }
 
           ./modules/system.nix
           ./modules/packages.nix
           ./modules/fonts.nix
           ./modules/homebrew.nix
           ./modules/defaults.nix
-
-          ./modules/mousecape.nix
 
           ./hosts/macbook.nix
 
@@ -77,6 +85,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+
+            home-manager.extraSpecialArgs = { inherit self customPackages; };
 
             home-manager.users.leopoldsprenger.imports = [
               ./home/leopold.nix

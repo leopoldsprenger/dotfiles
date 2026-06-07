@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, customPackages, ... }:
 
 {
+  imports = [
+    ./mousecape.nix
+  ];
+
   home.stateVersion = "24.11";
 
   home.username = "leopoldsprenger";
@@ -20,6 +24,8 @@
     ruff
     uv
     typst
+  ] ++ [
+    customPackages.mousecape
   ];
 
   launchd.agents = {
