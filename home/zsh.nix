@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ config, ... }:
 
 {
   programs.zsh = {
@@ -8,6 +8,6 @@
 
   home.file.".zshrc" = {
     source = ../resources/zsh/zshrc;
-    force = true; 
+    force = true;
   };
 }

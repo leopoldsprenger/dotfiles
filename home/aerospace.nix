@@ -8,7 +8,7 @@
     settings = pkgs.lib.importTOML ../resources/aerospace/aerospace.toml;
   };
 
-  xdg.configFile."aerospace/aerospace.toml".source = 
+  xdg.configFile."aerospace/aerospace.toml".source =
     lib.mkForce config.home.file.".aerospace.toml".source;
 
   home.file.".aerospace.toml".enable = false;

@@ -9,5 +9,6 @@ result-*
 *.swp
 *.swo
 
-# Machine-specific backups
+# Machine-specific backups (includes Raycast's scheduled .rayconfig exports —
+# see resources/raycast/README.md)
 backup/

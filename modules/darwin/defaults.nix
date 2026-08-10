@@ -9,8 +9,10 @@
       show-recents = false;
       tilesize = 24;
       persistent-apps = [
-        "/Applications/Zen Browser.app"
-        
+        # fixed: the zen cask installs "Zen.app", not "Zen Browser.app" —
+        # the old path silently failed to resolve a dock icon.
+        "/Applications/Zen.app"
+
         "/Applications/Things3.app"
         "/System/Applications/Calendar.app"
 
@@ -21,7 +23,7 @@
         "/Applications/WhatsApp.app"
         "/Applications/Signal.app"
         "/System/Applications/Mail.app"
-        
+
         "/Applications/Ghostty.app"
       ];
     };
@@ -57,7 +59,7 @@
       AppleScrollerPagingBehavior = true;
 
       _HIHideMenuBar = true;
-      
+
       # enable natural scroll
       "com.apple.swipescrolldirection" = true;
       # set fn keys as default function keys (usable without fn+fkey combination)
@@ -168,6 +170,11 @@
     sudo -u leopoldsprenger HOME=/Users/leopoldsprenger bash <<'EOF'
       export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
+      # fixed: ICLOUD_BASE was referenced below but never defined, so every
+      # "add_favorite" call for an iCloud subfolder silently no-opted (empty
+      # $ICLOUD_BASE meant the -d check always failed).
+      ICLOUD_BASE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+
       # disable dock hide animation
       defaults write com.apple.dock autohide-time-modifier -float 0
       defaults write com.apple.dock autohide-delay -float 0
@@ -181,9 +188,9 @@
 
       # show hidden files
       defaults write com.apple.finder AppleShowAllFiles YES
-      
+
       MYSIDES="${pkgs.mysides}/bin/mysides"
-      
+
       # remove apple default favorites and recents
       $MYSIDES remove all
 
@@ -194,15 +201,18 @@
           $MYSIDES add "$name" "file://$path"
         fi
       }
-      
+
       # ensure relevant directories exist
       mkdir -p "$HOME/Documents/projects"
+      # target folder for Raycast's scheduled .rayconfig export — see
+      # home/raycast.nix for the one-time Settings steps this supports
+      mkdir -p "$HOME/dotfiles/backup/raycast"
 
       # add favorites with script, since there is no official nix config
       add_favorite "Downloads" "$HOME/Downloads"
       add_favorite "Documents" "$HOME/Documents"
       add_favorite "Projects" "$HOME/Documents/projects"
-      
+
       # map individual icloud subfolders into favorites layout
       add_favorite "01 Life Admin" "$ICLOUD_BASE/01 Life Admin"
       add_favorite "02 Health" "$ICLOUD_BASE/02 Health"

@@ -2,7 +2,7 @@
 
 {
   nix-homebrew = {
-    enable = true; 
+    enable = true;
     user = "leopoldsprenger";
     mutableTaps = false;
   };
@@ -15,15 +15,18 @@
     ];
 
     brews = [
-    
+
     ];
 
     casks = [
       # dev + desktop managers
       "linearmouse"
       "cursorcerer"
-      "supercmdlabs/supercmd/supercmd"
+      "raycast"
       "ghostty"
+
+      # virtualization
+      "utm"
 
       # browsers + core apps
       "zen"

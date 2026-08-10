@@ -1,0 +1,12 @@
+keys:
+  # Replace with the real public key printed by `age-keygen` — see
+  # README → "Secrets (sops-nix)". Do this on BOTH machines' keys if they
+  # share one age identity, or list both public keys here if each machine
+  # gets its own.
+  - &leopold age1REPLACE_WITH_YOUR_AGE_PUBLIC_KEY
+
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *leopold

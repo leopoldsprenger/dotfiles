@@ -11,4 +11,3 @@
   # enable tap to click
   system.defaults.trackpad.Clicking = true;
 }
-
